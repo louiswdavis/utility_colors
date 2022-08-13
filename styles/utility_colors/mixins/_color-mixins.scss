@@ -1,0 +1,46 @@
+
+// ? List Classes
+
+// -|sm|md|lg|xl
+// @include list-simple-classes($list, "class", "style");
+@mixin list-simple-classes($list, $class-prop, $style-prop) {
+  @each $var in $list {
+    @include breakpoint-classes("#{$class-prop}--#{$var}") {
+      #{$style-prop}: $var
+    }
+  }
+}
+
+// -|sm|md|lg|xl
+// @include list-prop-classes($list, "style");
+@mixin list-prop-classes($list, $style-prop) {
+  @each $var in $list {
+    @include breakpoint-classes("#{$var}") {
+      #{$style-prop}: $var
+    }
+  }
+}
+
+
+// ? Map Classes
+
+// -|sm|md|lg|xl
+// @include map-simple-classes($map, "class", "style");
+@mixin map-simple-classes($map, $class-prop, $style-prop) {
+  @each $key, $var in $map {
+    @include breakpoint-classes("#{$class-prop}--#{$key}") {
+      #{$style-prop}: $var
+    }
+  }
+}
+
+
+// @include map-prop-classes($map, "style");
+@mixin map-prop-classes($list, $style-prop) {
+  @each $key, $var in $list {
+    @include breakpoint-classes("#{$key}") {
+      #{$style-prop}: $var
+    }
+  }
+}
+

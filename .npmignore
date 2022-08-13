@@ -1,12 +1,18 @@
 .github/
 .gitignore
 .ruby-version
+.rspec
+.rubocop.yml
 bin/
-lib/ 
+lib/
 spec/
 
 Gemfile
 Gemfile.lock
 utility_colors.gemspec
+
+Rakefile
+
+*.tgz
 
 CREATION.md

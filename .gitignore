@@ -7,8 +7,20 @@
 /spec/reports/
 /tmp/
 
+dump.rdb
+
 # rspec failure tracking
+.rspec
 .rspec_status
+
+# Ignore yarn files
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
+
+# Ignore node_modules
+/node_modules/
+/node_modules/*
 
 Gemfile.lock
 
@@ -16,5 +28,8 @@ Gemfile.lock
 *.gem
 *.rbc
 .bundle
+
+package-lock.json
+*.tgz
 
 CREATION.md

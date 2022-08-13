@@ -9,3 +9,12 @@
 
 # rspec failure tracking
 .rspec_status
+
+Gemfile.lock
+
+.DS_Store
+*.gem
+*.rbc
+.bundle
+
+CREATION.md

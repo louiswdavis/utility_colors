@@ -1,0 +1,17 @@
+{
+  "name": "utility_colors",
+  "version": "0.1.5",
+  "description": "The last time to worry about color palette styles",
+  "keywords": ["styles", "styling", "utility", "sass", "scss", "color", "colour"],
+  "homepage": "https://github.com/louiswdavis/utility_colors#readme",
+  "bugs": {
+    "url" : "https://github.com/louiswdavis/utility_colors/issues"
+  },
+  "license": "MIT",
+  "author": "Louis Davis <LouisWilliamDavis@gmail.com> (https://twitter.com/louiswdavis_)",
+  "main": "index.js",
+  "repository": "github:louiswdavis/utility_colors",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

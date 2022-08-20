@@ -1,0 +1,70 @@
+// * User Color Palettes
+
+$_default_utility_colors: (
+  config: (
+    classes: true,
+    breakpoint: true,
+    pseudo: true,
+    defaults: true,
+    syntax: 'BEM',
+  ),
+  colors: (
+    multi-use: (
+
+    ),
+    tri-use: (
+
+    ),
+    single-use: (
+
+    ),
+  )
+);
+
+$_uc_user_utility_colors: ();
+
+@if variable-exists(utility_colors) {
+  $_uc_user_config: map.merge(map.get($_default_utility_colors, config), map.get($utility_colors, config));
+  $_uc_user_colors: map.merge(map.get($_default_utility_colors, colors), map.get($utility_colors, colors));
+  
+  $_uc_user_utility_colors: (
+    config: $_uc_user_config,
+    colors: $_uc_user_colors,
+  );
+
+  @if map.get($_uc_user_utility_colors, config, defaults) == false {
+    $_uc-all-colors: ();
+  }
+
+  @if map.get($_uc_user_utility_colors, colors, multi-use) != null {
+    $_uc-user-multi-use-colors: map.get($_uc_user_utility_colors, colors, multi-use);
+    $_uc-user-multi-use-palette: multi-color-shades-palette($_uc-user-multi-use-colors);
+
+    $_uc-all-colors: map-combine(
+      $_uc-all-colors,
+      $_uc-user-multi-use-colors,
+      $_uc-user-multi-use-palette,
+    );
+  }
+  
+  @if map.get($_uc_user_utility_colors, colors, tri-use) != null {
+    $_uc-user-tri-use-colors: map.get($_uc_user_utility_colors, colors, tri-use);
+    $_uc-user-tri-use-palette: multi-color-tri-palette($_uc-user-tri-use-colors);
+
+    $_uc-all-colors: map-combine(
+      $_uc-all-colors,
+      $_uc-user-tri-use-palette,
+    );
+  }
+
+  @if map.get($_uc_user_utility_colors, colors, single-use) != null {
+    $_uc-user-single-use-colors: map.get($_uc_user_utility_colors, colors, single-use);
+
+    $_uc-all-colors: map-combine(
+      $_uc-all-colors,
+      $_uc-user-single-use-colors,
+    );
+  }
+} @else {
+  $_uc_user_utility_colors: $_default_utility_colors;
+}

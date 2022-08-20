@@ -1,0 +1,62 @@
+// * Advanced Classes
+
+@mixin breakpoint-up($size) {
+  @media only screen and (min-width: #{$size - 1}) {
+    @content;
+  }
+}
+
+// 'md|color--red-400'
+// 'hover|color--red-400'
+// 'hover|md|color--red-400'
+
+@mixin advanced-classes($class) {
+  .#{$class} {
+    @content;
+  }
+
+  @if map.get($_uc_user_utility_colors, config, breakpoint) == true and map.get($_uc_user_utility_colors, config, pseudo) == true {
+    @each $initial, $screen-size in $_uc-screen-sizes {
+      @each $pseudo in $_uc-pseudos {
+        .#{$pseudo}\|#{$initial}\|#{$class} {
+          @include breakpoint-up($screen-size) {
+            @content;
+          }
+        }
+      }
+    }
+  } 
+
+  @if map.get($_uc_user_utility_colors, config, breakpoint) == true {
+    @each $initial, $screen-size in $_uc-screen-sizes {
+      .#{$initial}\|#{$class} {
+        @include breakpoint-up($screen-size) {
+          @content;
+        }
+      }
+    }
+  } 
+
+  @if map.get($_uc_user_utility_colors, config, pseudo) == true {
+    @each $pseudo in $_uc-pseudos {
+      .#{$pseudo}\|#{$initial}\|#{$class} {
+        @include breakpoint-up($screen-size) {
+          @content;
+        }
+      }
+    } 
+  }
+}
+
+
+// ? Map Classes
+
+// -|sm|md|lg|xl
+// @include map-simple-classes($map, "class", "style");
+@mixin map-simple-classes($map, $class-prop, $style-prop) {
+  @each $key, $var in $map {
+    @include advanced-classes("#{$class-prop}--#{$key}") {
+      #{$style-prop}: $var
+    }
+  }
+}

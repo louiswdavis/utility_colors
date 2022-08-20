@@ -1,0 +1,22 @@
+// * Colors
+
+@if map.get($_uc_user_utility_colors, config, classes) {
+  @include advanced-classes("color--current") { color: currentColor; }
+
+  // ? Colors
+  @include map-simple-classes($_uc-all-colors, "color", "color"); // .color--red-100
+
+  // ? Background Colors
+  @include map-simple-classes($_uc-all-colors, "bg", "background-color"); // .bg--red-100
+
+  // ? Border Colors
+  @include map-simple-classes($_uc-all-colors, "border-c", "border-color"); // .border-c--red-100
+
+  // ? Outline Colors
+  @include map-simple-classes($_uc-all-colors, "outline-c", "outline-color"); // .outline-c--red-100
+
+  // ? Text Decoration Colors
+  @include map-simple-classes($_uc-all-colors, "decoration-c", "text-decoration-color"); // .decoration-c--red-100
+}
+
+

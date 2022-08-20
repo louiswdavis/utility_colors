@@ -1,0 +1,123 @@
+// * Palettes
+
+// ? Single Colour's Palette
+// a function to create a colour shade palette based off a single color input
+@function single-color-shades-palette($key, $base_color) {
+  $single-color-palette: ();
+
+  // colours are index inversely to their lightness
+  $base-palette-index: palette-index($base_color);
+  $single-color-palette: map-merge($single-color-palette, (#{palette-reference($key, $base_color, $base-palette-index)}: $base_color));
+
+  // Lighter colours
+  // calc the space available to create lightened colours based off the base colour
+  @if $base-palette-index > 0 {
+    @for $i from 1 through $base-palette-index {
+      $col: color-step($base_color, $i, true);
+      $single-color-palette: map-merge($single-color-palette, (#{palette-reference($key, $col, $base-palette-index - $i)}: $col));
+    }
+  }
+
+  // Darker colours
+  // calc the space available to create darkened colours based off the base colour
+  @if $base-palette-index < 9 {
+    @for $i from 1 through 9 - $base-palette-index {
+      $col: color-step($base_color, $i, false);
+      $single-color-palette: map-merge($single-color-palette, (#{palette-reference($key, $col, $base-palette-index + $i)}: $col));
+    }
+  }
+
+  @return $single-color-palette;
+}
+
+
+// ? How to Calculate the next colour in the Palette
+@function color-step($color, $step, $lighter) {
+  $color: hsl_sequence($color, $step, $lighter);
+
+  @return $color;
+}
+
+@function palette-reference($key, $color, $index) {
+  $reference: '';
+
+  @if $index == 0 {
+    $reference: #{$key + '-50'};
+  } @else {
+    $reference: #{$key + '-' + calc($index) + '00'};
+  }
+
+  @return $reference;
+}
+
+
+// ? Single Colour's Trio Palette
+// a function to create a trio shade palette based off a single color input
+@function single-color-tri-palette($key, $base_color) {
+  $single-color-trio: ();
+
+  $base-palette-index: palette-index($base_color);
+  $single-color-trio: map-merge($single-color-trio, (#{$key}: $base_color));
+
+  // Lighter colour
+  @if $base-palette-index > 1 {
+    $col: color-step($base_color, 2, true);
+    $single-color-trio: map-merge($single-color-trio, (#{$key + '-light'}: $col));
+  } @else if $base-palette-index > 0 {
+    $col: color-step($base_color, 1, true);
+    $single-color-trio: map-merge($single-color-trio, (#{$key + '-light'}: $col));
+  } @else {
+    $single-color-trio: map-merge($single-color-trio, (#{$key + '-light'}: null))
+  }
+  
+  // Darker colour
+  @if $base-palette-index < 8 {
+    $col: color-step($base_color, 2, false);
+    $single-color-trio: map-merge($single-color-trio, (#{$key + '-dark'}: $col));
+  } @else if $base-palette-index < 9 {
+    $col: color-step($base_color, 1, false);
+    $single-color-trio: map-merge($single-color-trio, (#{$key + '-dark'}: $col));
+  } @else {
+    $single-color-trio: map-merge($single-color-trio, (#{$key + '-dark'}: null))
+  }
+
+  @return $single-color-trio;
+}
+
+
+
+// ? Multiple Colours
+
+// ? Multiple Colour's Palette
+// a function to loop through a map of colours and create shade palettes for them all and collect this into a single map
+
+@function multi-color-shades-palette($color-map) {
+  $multi-color-palette: ();
+  
+  @each $key, $base_color in $color-map {
+    // create a palette for a single colour from the providing mapping
+    $new-palette: single-color-shades-palette($key, $base_color);
+
+    // merge the colours shade palette into the collective mapping
+    $multi-color-palette: map-merge($multi-color-palette, $new-palette);
+  }
+
+  @return $multi-color-palette;
+}
+
+// ? Multiple Colour's Trio Palette
+// a function to loop through a map of colours and create trio shade palettes for them all and collect this into a single map
+
+@function multi-color-tri-palette($color-map) {
+  $multi-color-trio: ();
+  
+  @each $key, $base_color in $color-map {
+    // create a palette for a single colour from the providing mapping
+    $new-trio: single-color-tri-palette($key, $base_color);
+
+    // merge the colours shade palette into the collective mapping
+    $multi-color-trio: map-merge($multi-color-trio, $new-trio);
+  }
+
+  @return $multi-color-trio;
+}

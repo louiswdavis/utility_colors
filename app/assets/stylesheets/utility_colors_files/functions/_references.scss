@@ -1,0 +1,7 @@
+@function light-index($color) {
+  @return math.floor(math.div(lightness($color), 10%));
+}
+
+@function palette-index($color) {
+  @return 9 - light-index($color);
+}

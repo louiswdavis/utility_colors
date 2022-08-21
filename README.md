@@ -97,7 +97,7 @@ $utility_colors: (
 
 ## Examples
 
-![v0.1.7 Colour Palette Example](https://github.com/louiswdavis/utility_colors/blob/master/examples/v0.1.7.png)
+![v0.1.8 Colour Palette Example](https://github.com/louiswdavis/utility_colors/blob/master/examples/v0.1.8.png)
 
 ## Usage
 

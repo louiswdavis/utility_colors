@@ -1,4 +1,4 @@
-## [0.1.7] - 2022-08-20
+## [0.1.8] - 2022-08-20
 
 - Made utility_colors accessible as both a ruby gem and npm package
 - Added functions that create a linear, equally spaced and smooth shade palette based off any colour supplied regardless of it's hue, saturation, or lightness

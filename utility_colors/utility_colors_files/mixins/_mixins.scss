@@ -18,7 +18,7 @@
   @if map.get($_uc_user_utility_colors, config, breakpoint) == true and map.get($_uc_user_utility_colors, config, pseudo) == true {
     @each $initial, $screen-size in $_uc-screen-sizes {
       @each $pseudo in $_uc-pseudos {
-        .#{$pseudo}\|#{$initial}\|#{$class} {
+        .#{$pseudo}\|#{$initial}\|#{$class}:#{$pseudo} {
           @include breakpoint-up($screen-size) {
             @content;
           }
@@ -39,10 +39,8 @@
 
   @if map.get($_uc_user_utility_colors, config, pseudo) == true {
     @each $pseudo in $_uc-pseudos {
-      .#{$pseudo}\|#{$initial}\|#{$class} {
-        @include breakpoint-up($screen-size) {
-          @content;
-        }
+      .#{$pseudo}\|#{$class}:#{$pseudo} {
+        @content;
       }
     } 
   }

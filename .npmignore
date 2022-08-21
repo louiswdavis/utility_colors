@@ -1,18 +1,28 @@
+.git/
 .github/
-.gitignore
-.ruby-version
-.rspec
-.rubocop.yml
+app/
 bin/
 lib/
 spec/
 
+/node_modules/
+/node_modules/*
+
+.gitignore
+.ruby-version
+.rspec
+.rubocop.yml
+
 Gemfile
 Gemfile.lock
-utility_colors.gemspec
+
+DEPTH.md
+NOTES.md
+
+package-lock.json
 
 Rakefile
 
 *.tgz
-
-CREATION.md
+*.gem
+utility_colors.gemspec

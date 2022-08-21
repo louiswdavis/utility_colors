@@ -1,7 +1,7 @@
 {
   "name": "utility_colors",
-  "version": "0.1.4",
-  "description": "The last time to worry about color palette styles",
+  "version": "0.1.7",
+  "description": "The last tool you'll need to create color palettes and style your applications with them",
   "keywords": [
     "styles",
     "styling",
@@ -18,7 +18,7 @@
   "license": "MIT",
   "author": "Louis Davis <LouisWilliamDavis@gmail.com> (https://twitter.com/louiswdavis_)",
   "main": "index.js",
-  "style": "styles/_utility_colors.scss",
+  "style": "utility_colors/_utility_colors.scss",
   "repository": "github:louiswdavis/utility_colors",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

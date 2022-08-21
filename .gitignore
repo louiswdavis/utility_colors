@@ -7,7 +7,11 @@
 /spec/reports/
 /tmp/
 
-dump.rdb
+# Ignore node_modules
+/node_modules/
+/node_modules/*
+
+.DS_Store
 
 # rspec failure tracking
 .rspec
@@ -18,18 +22,17 @@ dump.rdb
 yarn-debug.log*
 .yarn-integrity
 
-# Ignore node_modules
-/node_modules/
-/node_modules/*
+dump.rdb
 
 Gemfile.lock
+package-lock.json
 
-.DS_Store
+DEPTH.md
+NOTES.md
+
+Rakefile
+
+*.tgz
 *.gem
 *.rbc
-.bundle
-
-package-lock.json
-*.tgz
-
-CREATION.md
+*.gemspec

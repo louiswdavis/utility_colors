@@ -1,6 +1,6 @@
 // * Color Palettes
 
-$_uc-multi-use-colors: (
+$_uc-shades-use-colors: (
   'red': hsl(2, 78%, 64%),
   'rust': hsl(16, 82%, 62%),
   'orange': hsl(31, 90%, 65%),
@@ -22,11 +22,11 @@ $_uc-multi-use-colors: (
   'base': hsl(0, 3%, 46%),
 );
 
-$_uc-multi-use-palette: multi-color-shades-palette($_uc-multi-use-colors);
+$_uc-shades-use-palette: multi-color-shades-palette($_uc-shades-use-colors);
 
 $_uc-all-colors: map-combine(
-  $_uc-multi-use-colors,
-  $_uc-multi-use-palette,
+  $_uc-shades-use-colors,
+  $_uc-shades-use-palette,
 );
 
 @function get-uc($color-name) {

@@ -20,7 +20,7 @@ $_uc-pseudo-input-extra: (
   read-only,
   read-write,
   require,
-  valid,
+  valid
 );
 
 $_uc-pseudo-action: (
@@ -28,7 +28,7 @@ $_uc-pseudo-action: (
   hover,
   link,
   target,
-  visited,
+  visited
 );
 
 $_uc-pseudo-child: (
@@ -39,7 +39,7 @@ $_uc-pseudo-child: (
   last-of-type,
   only-of-type,
   only-child,
-  empty,
+  empty
   // nth-child(n),
   // nth-last-child(n),
   // nth-last-of-type(n),
@@ -49,5 +49,5 @@ $_uc-pseudo-child: (
 $_uc-pseudos: list-combine(
   $_uc-pseudo-input,
   $_uc-pseudo-action,
-  $_uc-pseudo-child,
+  $_uc-pseudo-child
 );

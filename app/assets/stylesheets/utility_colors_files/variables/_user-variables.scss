@@ -9,7 +9,7 @@ $_default_utility_colors: (
     syntax: 'BEM',
   ),
   colors: (
-    multi-use: (
+    shades-use: (
 
     ),
     tri-use: (
@@ -22,28 +22,36 @@ $_default_utility_colors: (
 );
 
 $_uc_user_utility_colors: ();
+$_uc_user_config: ();
+$_uc_user_colors: ();
 
 @if variable-exists(utility_colors) {
-  $_uc_user_config: map.merge(map.get($_default_utility_colors, config), map.get($utility_colors, config));
-  $_uc_user_colors: map.merge(map.get($_default_utility_colors, colors), map.get($utility_colors, colors));
+  @if map.get($utility_colors, config) != null {
+    $_uc_user_config: map.merge(map.get($_default_utility_colors, config), map.get($utility_colors, config));
+    @if map.get($_uc_user_utility_colors, config, defaults) == false { $_uc-all-colors: (); }
+  } @else {
+    $_uc_user_config: map.get($_default_utility_colors, config);
+  }
+
+  @if map.get($utility_colors, colors) != null {
+    $_uc_user_colors: map.merge(map.get($_default_utility_colors, colors), map.get($utility_colors, colors));
+  } @else {
+    $_uc_user_colors: map.get($_default_utility_colors, colors);
+  }
   
   $_uc_user_utility_colors: (
     config: $_uc_user_config,
     colors: $_uc_user_colors,
   );
 
-  @if map.get($_uc_user_utility_colors, config, defaults) == false {
-    $_uc-all-colors: ();
-  }
-
-  @if map.get($_uc_user_utility_colors, colors, multi-use) != null {
-    $_uc-user-multi-use-colors: map.get($_uc_user_utility_colors, colors, multi-use);
-    $_uc-user-multi-use-palette: multi-color-shades-palette($_uc-user-multi-use-colors);
+  @if map.get($_uc_user_utility_colors, colors, shades-use) != null {
+    $_uc-user-shades-use-colors: map.get($_uc_user_utility_colors, colors, shades-use);
+    $_uc-user-shades-use-palette: multi-color-shades-palette($_uc-user-shades-use-colors);
 
     $_uc-all-colors: map-combine(
       $_uc-all-colors,
-      $_uc-user-multi-use-colors,
-      $_uc-user-multi-use-palette,
+      $_uc-user-shades-use-colors,
+      $_uc-user-shades-use-palette,
     );
   }
   

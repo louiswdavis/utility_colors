@@ -3,33 +3,39 @@
 require_relative "lib/utility_colors/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "utility_colors"
+  spec.name = 'utility_colors'
   spec.version = UtilityColors::VERSION
-  spec.authors = ["Louis W Davis"]
-  spec.email = ["louiswilliamdavis@gmail.com"]
+  spec.authors = ['Louis Davis']
+  spec.email = ['LouisWilliamDavis@gmail.com']
 
-  spec.summary = "The last time to worry about color palette styles"
-  spec.description = "Creates all the color palettes classes you need from your colors"
-  spec.homepage = "https://github.com/louiswdavis/utility_colors"
-  spec.license = "MIT"
-  # spec.required_ruby_version = ">= 2.6.0"
+  spec.summary = 'Quickly build colour palettes classes for use in stylesheets.'
+  # spec.description = 'Create broad colour palettes based on specific colour swatches, or more specific light/dark variant palettes. Be in control of the colours you use and shorten the iterative process when deciding on how to build your palettes.'
+  spec.homepage = 'https://github.com/louiswdavis/utility_colors'
+  spec.license = 'MIT'
+  spec.required_ruby_version = '>= 1.9.3'
 
   # spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
 
-  spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = spec.homepage
-  spec.metadata["changelog_uri"] = "https://github.com/louiswdavis/utility_colors/blob/master/CHANGELOG.md"
+  spec.metadata['homepage_uri'] = spec.homepage
+  spec.metadata['source_code_uri'] = 'https://github.com/louiswdavis/utility_colors'
+  spec.metadata['changelog_uri'] = 'https://github.com/louiswdavis/utility_colors/blob/master/CHANGELOG.md'
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
+  # gemspec = File.basename(__FILE__)
+  # spec.files = IO.popen(%w[git ls-files -z], chdir: __dir__, err: IO::NULL) do |ls|
+  #   ls.readlines("\x0", chomp: true).reject do |f|
+  #     (f == gemspec) ||
+  #       f.start_with?(*%w[bin/ test/ spec/ features/ .git appveyor Gemfile])
+  #   end
+  # end
+  # spec.bindir = "exe"
+  # spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
+  # spec.require_paths = ["lib"]
+
   spec.files = Dir.chdir(File.expand_path(__dir__)) do
-    `git ls-files -z`.split("\x0").reject do |f|
-      (f == __FILE__) || f.match(%r{\A(?:(?:app|bin|test|spec|features)/|\.(?:git|travis|circleci)|appveyor)})
-    end
+    Dir['{lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
   end
-  spec.bindir = "exe"
-  spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
-  spec.require_paths = ["lib"]
 
   # Uncomment to register a new dependency of your gem
   # spec.add_dependency "example-gem", "~> 1.0"

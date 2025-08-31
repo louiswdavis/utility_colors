@@ -7,15 +7,19 @@
 /spec/reports/
 /tmp/
 
+*.gem
+
+# Ignore Byebug command history file.
+.byebug_history
+
+# rspec failure tracking
+.rspec_status
+
 # Ignore node_modules
 /node_modules/
 /node_modules/*
 
 .DS_Store
-
-# rspec failure tracking
-.rspec
-.rspec_status
 
 # Ignore yarn files
 /yarn-error.log
@@ -24,15 +28,5 @@ yarn-debug.log*
 
 dump.rdb
 
-Gemfile.lock
-package-lock.json
-
-DEPTH.md
-NOTES.md
-
-Rakefile
-
 *.tgz
-*.gem
 *.rbc
-*.gemspec

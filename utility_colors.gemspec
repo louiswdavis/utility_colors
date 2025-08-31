@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative "lib/utility_colors/version"
+require_relative 'lib/utility_colors/version'
 
 Gem::Specification.new do |spec|
   spec.name = 'utility_colors'

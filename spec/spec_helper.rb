@@ -3,6 +3,8 @@
 require 'utility_colors'
 require 'byebug'
 
+require 'generator_spec'
+
 ENV['RAILS_ENV'] ||= 'test'
 
 RSpec.configure do |config|
@@ -14,5 +16,19 @@ RSpec.configure do |config|
 
   config.expect_with :rspec do |c|
     c.syntax = :expect
+  end
+
+  config.before(:each) do
+    UtilityColors.reset_configuration!
+
+    UtilityColors.configure do |configuration|
+      # Enabled Environments
+      configuration.enable_environments = [:test]
+      configuration.output_filename = 'spec/tmp/exports/utility_colors'
+    end
+  end
+
+  config.after(:each) do
+    UtilityColors.reset_configuration!
   end
 end

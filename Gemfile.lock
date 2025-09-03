@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    utility_colors (2.0.0)
+    utility_colors (1.0.0)
 
 GEM
   remote: https://rubygems.org/
@@ -96,6 +96,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.18.9-x86_64-linux-musl)
       racc (~> 1.4)
+    ostruct (0.6.3)
     parallel (1.27.0)
     parser (3.3.9.0)
       ast (~> 2.4.1)
@@ -223,7 +224,10 @@ DEPENDENCIES
   byebug
   capybara
   generator_spec
+  irb (~> 1.15)
+  ostruct
   rake (~> 13.0)
+  rdoc (~> 6.7)
   rspec (~> 3.0)
   rubocop-airbnb
   utility_colors!

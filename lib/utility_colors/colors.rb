@@ -94,7 +94,7 @@ module UtilityColors
       generated_hash.transform_keys! { |key| configuration.output_prefix + key } if configuration.output_prefix.present?
       generated_hash.transform_keys! { |key| key + configuration.output_suffix } if configuration.output_suffix.present?
 
-      generated_hash.transform_keys! { |key| '.' + key }
+      generated_hash.transform_keys! { |key| ".#{key}" }
 
       generated_hash
     end

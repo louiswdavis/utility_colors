@@ -8,7 +8,7 @@ RSpec.describe UtilityColors::Configuration do
         :enable_environments,
         :import_palettes_filepath,
         :output_filename, :output_dated, :output_files, :output_prefix, :output_suffix,
-        :regular_classes, :breakpoint_classes, :pseudo_classes, :breakpoint_pseudo_classes
+        :regular_classes, :breakpoint_classes, :pseudo_classes, :pseudo_breakpoint_classes
       ]
 
       expected_defaults = [[:development], 'utility_palettes.scss', 'utility_colors', false, ['scss'], nil, nil, true, false, false, false]

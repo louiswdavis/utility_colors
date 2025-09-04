@@ -5,7 +5,7 @@ module UtilityColors
     attr_accessor :enable_environments,
                   :import_palettes_filepath,
                   :output_filename, :output_dated, :output_files, :output_prefix, :output_suffix,
-                  :regular_classes, :breakpoint_classes, :pseudo_classes, :breakpoint_pseudo_classes # :utility_palettes_configuration
+                  :regular_classes, :breakpoint_classes, :pseudo_classes, :pseudo_breakpoint_classes # :utility_palettes_configuration
 
     def initialize
       # Enabled Environments
@@ -25,7 +25,7 @@ module UtilityColors
       @regular_classes = true
       @breakpoint_classes = false
       @pseudo_classes = false
-      @breakpoint_pseudo_classes = false
+      @pseudo_breakpoint_classes = false
 
       # Configuration instance for UtilityPalettes
       # @utility_palettes_configuration = UtilityPalettes::Configuration.new

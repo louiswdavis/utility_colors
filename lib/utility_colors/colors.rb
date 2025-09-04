@@ -35,7 +35,7 @@ module UtilityColors
         puts 'Generated breakpoint colour classes...'
       end
 
-      if configuration.breakpoint_classes
+      if configuration.pseudo_breakpoint_classes
         generated_pseudo_breakpoint_classes = UtilityColors::Builders.bulk_pseudo_breakpoint_class_creation(generated_source_classes)
         puts 'Generated breakpoint colour classes...'
       end

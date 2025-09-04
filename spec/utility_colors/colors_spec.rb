@@ -12,7 +12,7 @@ RSpec.describe UtilityColors::Colors do
       configuration.output_filename = 'spec/tmp/exports/palette'
       configuration.breakpoint_classes = true
       configuration.pseudo_classes = true
-      configuration.breakpoint_pseudo_classes = true
+      configuration.pseudo_breakpoint_classes = true
 
       allow(UtilityColors).to receive(:configuration).and_call_original
 

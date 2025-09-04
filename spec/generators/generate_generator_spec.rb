@@ -28,7 +28,7 @@ RSpec.describe UtilityColors::Generators::GenerateGenerator, type: :generator do
     configuration.output_files = ['json', 'scss', 'css']
     configuration.breakpoint_classes = true
     configuration.pseudo_classes = true
-    configuration.breakpoint_pseudo_classes = true
+    configuration.pseudo_breakpoint_classes = true
 
     run_generator
 

@@ -15,6 +15,8 @@
 # rspec failure tracking
 .rspec_status
 
+spec/tmp
+
 # Ignore node_modules
 /node_modules/
 /node_modules/*

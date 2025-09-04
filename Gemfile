@@ -1,12 +1,20 @@
 # frozen_string_literal: true
 
-source "https://rubygems.org"
+source 'https://rubygems.org'
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 # Specify your gem's dependencies in utility_colors.gemspec
 gemspec
 
-gem "rake", "~> 13.0"
+gem 'byebug'
+gem 'capybara'
+gem 'rake', '~> 13.0'
+gem 'rspec', '~> 3.0'
 
-gem "rspec", "~> 3.0"
+gem 'generator_spec'
+gem 'rubocop-airbnb'
 
-gem "rubocop", "~> 1.21"
+# will no longer be part of the default ruby gems starting from Ruby 3.5.0
+gem 'irb', '~> 1.15'
+gem 'ostruct'
+gem 'rdoc', '~> 6.7'

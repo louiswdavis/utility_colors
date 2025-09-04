@@ -70,6 +70,10 @@ module UtilityColors
         'svg-stroke-c' => 'stroke'
       }
 
+      # 'border-t' => 'border-top-color',
+      # 'border-r' => 'border-right-color',
+      # 'border-b' => 'border-bottom-color',
+      # 'border-l' => 'border-left-color',
       # 'box-shadow' => '--uc-box-shadow-c'
       # 'drop-shadow' => '--uc-drop-shadow-c'
 

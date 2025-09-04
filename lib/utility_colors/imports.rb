@@ -18,7 +18,6 @@ module UtilityColors
           {}
         end
       else
-        # if no file or not set, use defaults (from palettes defaults ?)
         {}
       end
     end

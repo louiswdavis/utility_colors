@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-# Specify your gem's dependencies in utility_palettes.gemspec
+# Specify your gem's dependencies in utility_colors.gemspec
 gemspec
 
 gem 'byebug'

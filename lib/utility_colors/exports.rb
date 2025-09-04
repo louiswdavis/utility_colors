@@ -43,26 +43,6 @@ module UtilityColors
       true
     end
 
-    def bespoke_property_variables
-      # const utilities = {
-      #   bg: (value) => ({ 'background-color': value }),
-      #   text: (value) => ({ 'color': value }),
-      #   border: (value) => ({ 'border-color': value }),
-      #   'border-t': (value) => ({ '--tw-border-opacity': 1, 'border-top-color': value }),
-      #   'border-r': (value) => ({ '--tw-border-opacity': 1, 'border-right-color': value }),
-      #   'border-b': (value) => ({ '--tw-border-opacity': 1, 'border-bottom-color': value }),
-      #   'border-l': (value) => ({ '--tw-border-opacity': 1, 'border-left-color': value }),
-      #   outline: (value) => ({ 'outline-color': value }),
-      #   ring: (value) => ({ '--tw-ring-opacity': 1, '--tw-ring-color': value }),
-      #   'ring-offset': (value) => ({ '--tw-ring-offset-color': value }),
-      #   'shadow': (value) => ({ '--tw-shadow-color': value, '--tw-shadow': 'var(--tw-shadow-colored)' }),
-      #   accent: (value) => ({ 'accent-color': value }),
-      #   caret: (value) => ({ 'caret-color': value }),
-      #   fill: (value) => ({ 'fill': value }),
-      #   stroke: (value) => ({ 'stroke': value }),
-      # };
-    end
-
     def self.append_percentage(value)
       "#{value}%"
     end

@@ -14,7 +14,7 @@ module UtilityColors
     # 'md|color--red-400'
     def self.utility_pseudo_classes_creation(class_name, content, pseudo)
       content = [content] unless content.is_a?(Array)
-      { "#{pseudo}\\|#{class_name}:#{pseudo}" => content.join(': ').to_s }
+      { "#{pseudo}\\|#{class_name}:#{pseudo}" => content.join(': ') }
     end
 
     # 'hover|color--red-400'

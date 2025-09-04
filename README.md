@@ -83,7 +83,7 @@ What types of classes should be built:
 | regular_classes           | Should 'regular' classes be built, e.g. ".bg--red-50"                     | true    | Boolean    | true / false          |
 | breakpoint_classes        | Should 'breakpoint' classes be built, e.g. ".md\\|color--black"           | false   | Boolean    | true / false          |
 | pseudo_classes            | Should 'pseudo' classes be built, e.g. ".hover\\|border-c--blue-50:hover" | false   | Boolean    | true / false          |
-| breakpoint_pseudo_classes | Should 'regular' classes be built, e.g. ".hover\\|md\\|bg--blue-50:hover" | false   | Boolean    | true / false          |
+| pseudo_breakpoint_classes | Should 'regular' classes be built, e.g. ".hover\\|md\\|bg--blue-50:hover" | false   | Boolean    | true / false          |
 
 ### Extra Information
 

@@ -18,5 +18,5 @@ UtilityColors.configure do |config|
   # config.regular_classes = true
   # config.breakpoint_classes = false
   # config.pseudo_classes = false
-  # config.breakpoint_pseudo_classes = false
+  # config.pseudo_breakpoint_classes = false
 end

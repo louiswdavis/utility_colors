@@ -30,14 +30,14 @@ module UtilityColors
         puts 'Generated breakpoint colour classes...'
       end
 
-      if configuration.breakpoint_classes
+      if configuration.pseudo_classes
         generated_pseudo_classes = UtilityColors::Builders.bulk_pseudo_class_creation(generated_source_classes)
-        puts 'Generated breakpoint colour classes...'
+        puts 'Generated pseudo colour classes...'
       end
 
-      if configuration.breakpoint_classes
+      if configuration.pseudo_breakpoint_classes
         generated_pseudo_breakpoint_classes = UtilityColors::Builders.bulk_pseudo_breakpoint_class_creation(generated_source_classes)
-        puts 'Generated breakpoint colour classes...'
+        puts 'Generated pseudo breakpoint colour classes...'
       end
 
       generated_classes = {}.merge(generated_regular_classes, generated_breakpoint_classes, generated_pseudo_classes, generated_pseudo_breakpoint_classes)

@@ -3,8 +3,20 @@
 UtilityColors.configure do |config|
   # Enabled Environments
   # config.enable_environments = [:development]
-  # import_utility_palettes_file_path: nil
-  # breakpoint_classes: true
-  # pseudo_classes: true
-  # breakpoint_pseudo_classes: true
+
+  # Import
+  # config.import_palettes_filepath = 'utility_palettes.scss'
+
+  # Output
+  # config.output_filename = 'utility_colors'
+  # config.output_dated = false
+  # config.output_files = ['scss']
+  # config.output_prefix = nil
+  # config.output_suffix = nil
+
+  # Class Types
+  # config.regular_classes = true
+  # config.breakpoint_classes = false
+  # config.pseudo_classes = false
+  # config.breakpoint_pseudo_classes = false
 end

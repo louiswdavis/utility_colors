@@ -12,7 +12,7 @@ module UtilityColors
       @enable_environments = [:development]
 
       # Use Existing Utility Palettes Result
-      @import_palettes_filepath = nil
+      @import_palettes_filepath = 'utility_palettes.scss'
 
       # Output
       @output_filename = 'utility_colors'

@@ -146,10 +146,10 @@ RSpec.describe UtilityColors::Colors do
       @colour_palette = { 'colour-300' => '#938312', 'colour-500' => 'rgb(51, 102, 204)' }
 
       @generated_hash = {
-        'sm|color--current' => '@media only screen and (min-width: 324.0) { color: currentColor }',
-        'md|color--current' => '@media only screen and (min-width: 767.0) { color: currentColor }',
-        'lg|color--current' => '@media only screen and (min-width: 1023.0) { color: currentColor }',
-        'xl|color--current' => '@media only screen and (min-width: 1439.0) { color: currentColor }'
+        'sm|color--current' => '@media only screen and (min-width: 324.0) { color: currentColor; }',
+        'md|color--current' => '@media only screen and (min-width: 767.0) { color: currentColor; }',
+        'lg|color--current' => '@media only screen and (min-width: 1023.0) { color: currentColor; }',
+        'xl|color--current' => '@media only screen and (min-width: 1439.0) { color: currentColor; }'
       }
     end
 
@@ -167,6 +167,7 @@ RSpec.describe UtilityColors::Colors do
           'svg-stroke-c--current' => 'stroke: currentColor;'
         }
       )
+
       expect(described_class.build_source_classes(@colour_palette)).to eq(
         {
           'color--current' => 'color: currentColor;',
@@ -206,10 +207,10 @@ RSpec.describe UtilityColors::Colors do
       generated_hash = @generated_hash.dup # create a copy rather than just another assignment
       expect(described_class.format_classes(generated_hash)).to eq(
         {
-          '.sm|color--current' => '@media only screen and (min-width: 324.0) { color: currentColor }',
-          '.md|color--current' => '@media only screen and (min-width: 767.0) { color: currentColor }',
-          '.lg|color--current' => '@media only screen and (min-width: 1023.0) { color: currentColor }',
-          '.xl|color--current' => '@media only screen and (min-width: 1439.0) { color: currentColor }'
+          '.sm|color--current' => '@media only screen and (min-width: 324.0) { color: currentColor; }',
+          '.md|color--current' => '@media only screen and (min-width: 767.0) { color: currentColor; }',
+          '.lg|color--current' => '@media only screen and (min-width: 1023.0) { color: currentColor; }',
+          '.xl|color--current' => '@media only screen and (min-width: 1439.0) { color: currentColor; }'
         }
       )
 
@@ -219,10 +220,10 @@ RSpec.describe UtilityColors::Colors do
       generated_hash = @generated_hash.dup # create a copy rather than just another assignment
       expect(described_class.format_classes(generated_hash)).to eq(
         {
-          '.basic-sm|color--current' => '@media only screen and (min-width: 324.0) { color: currentColor }',
-          '.basic-md|color--current' => '@media only screen and (min-width: 767.0) { color: currentColor }',
-          '.basic-lg|color--current' => '@media only screen and (min-width: 1023.0) { color: currentColor }',
-          '.basic-xl|color--current' => '@media only screen and (min-width: 1439.0) { color: currentColor }'
+          '.basic-sm|color--current' => '@media only screen and (min-width: 324.0) { color: currentColor; }',
+          '.basic-md|color--current' => '@media only screen and (min-width: 767.0) { color: currentColor; }',
+          '.basic-lg|color--current' => '@media only screen and (min-width: 1023.0) { color: currentColor; }',
+          '.basic-xl|color--current' => '@media only screen and (min-width: 1439.0) { color: currentColor; }'
         }
       )
 
@@ -232,10 +233,10 @@ RSpec.describe UtilityColors::Colors do
       generated_hash = @generated_hash.dup # create a copy rather than just another assignment
       expect(described_class.format_classes(generated_hash)).to eq(
         {
-          '.basic-sm|color--current--show' => '@media only screen and (min-width: 324.0) { color: currentColor }',
-          '.basic-md|color--current--show' => '@media only screen and (min-width: 767.0) { color: currentColor }',
-          '.basic-lg|color--current--show' => '@media only screen and (min-width: 1023.0) { color: currentColor }',
-          '.basic-xl|color--current--show' => '@media only screen and (min-width: 1439.0) { color: currentColor }'
+          '.basic-sm|color--current--show' => '@media only screen and (min-width: 324.0) { color: currentColor; }',
+          '.basic-md|color--current--show' => '@media only screen and (min-width: 767.0) { color: currentColor; }',
+          '.basic-lg|color--current--show' => '@media only screen and (min-width: 1023.0) { color: currentColor; }',
+          '.basic-xl|color--current--show' => '@media only screen and (min-width: 1439.0) { color: currentColor; }'
         }
       )
 
@@ -245,10 +246,10 @@ RSpec.describe UtilityColors::Colors do
       generated_hash = @generated_hash.dup # create a copy rather than just another assignment
       expect(described_class.format_classes(generated_hash)).to eq(
         {
-          '.sm|color--current--show' => '@media only screen and (min-width: 324.0) { color: currentColor }',
-          '.md|color--current--show' => '@media only screen and (min-width: 767.0) { color: currentColor }',
-          '.lg|color--current--show' => '@media only screen and (min-width: 1023.0) { color: currentColor }',
-          '.xl|color--current--show' => '@media only screen and (min-width: 1439.0) { color: currentColor }'
+          '.sm|color--current--show' => '@media only screen and (min-width: 324.0) { color: currentColor; }',
+          '.md|color--current--show' => '@media only screen and (min-width: 767.0) { color: currentColor; }',
+          '.lg|color--current--show' => '@media only screen and (min-width: 1023.0) { color: currentColor; }',
+          '.xl|color--current--show' => '@media only screen and (min-width: 1439.0) { color: currentColor; }'
         }
       )
     end

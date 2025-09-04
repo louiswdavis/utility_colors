@@ -22,7 +22,7 @@ RSpec.describe UtilityColors::Builders do
       @initial = 'md'
       @screen_size = 1280
 
-      @class_hash = { 'color--current' => 'color: currentColor', 'bg--current' => ['background-color', 'currentColor'] }
+      @class_hash = { 'color--current' => 'color: currentColor;', 'bg--current' => ['background-color', 'currentColor;'] }
     end
 
     it '.utility_classes_creation' do
@@ -30,19 +30,20 @@ RSpec.describe UtilityColors::Builders do
       expect(described_class.utility_classes_creation(@class_name, @content_arr)).to eq({ 'color--current' => 'background-color: currentColor;' })
     end
 
+    # ';' is only added in the above method and content in then reused in the next 3
     it '.utility_pseudo_classes_creation' do
-      expect(described_class.utility_pseudo_classes_creation(@class_name, @content_str, @pseudo)).to eq({ 'hover|color--current:hover' => 'color: currentColor;' })
-      expect(described_class.utility_pseudo_classes_creation(@class_name, @content_arr, @pseudo)).to eq({ 'hover|color--current:hover' => 'background-color: currentColor;' })
+      expect(described_class.utility_pseudo_classes_creation(@class_name, @content_str, @pseudo)).to eq({ 'hover|color--current:hover' => 'color: currentColor' })
+      expect(described_class.utility_pseudo_classes_creation(@class_name, @content_arr, @pseudo)).to eq({ 'hover|color--current:hover' => 'background-color: currentColor' })
     end
 
     it '.utility_breakpoint_classes_creation' do
-      expect(described_class.utility_breakpoint_classes_creation(@class_name, @content_str, @initial, @screen_size)).to eq({ 'md|color--current' => '@media only screen and (min-width: 1279) { color: currentColor; }' })
-      expect(described_class.utility_breakpoint_classes_creation(@class_name, @content_arr, @initial, @screen_size)).to eq({ 'md|color--current' => '@media only screen and (min-width: 1279) { background-color: currentColor; }' })
+      expect(described_class.utility_breakpoint_classes_creation(@class_name, @content_str, @initial, @screen_size)).to eq({ 'md|color--current' => '@media only screen and (min-width: 1279) { color: currentColor }' })
+      expect(described_class.utility_breakpoint_classes_creation(@class_name, @content_arr, @initial, @screen_size)).to eq({ 'md|color--current' => '@media only screen and (min-width: 1279) { background-color: currentColor }' })
     end
 
     it '.utility_pseudo_breakpoint_classes_creation' do
-      expect(described_class.utility_pseudo_breakpoint_classes_creation(@class_name, @content_str, @pseudo, @initial, @screen_size)).to eq({ 'hover|md|color--current:hover' => '@media only screen and (min-width: 1279) { color: currentColor; }' })
-      expect(described_class.utility_pseudo_breakpoint_classes_creation(@class_name, @content_arr, @pseudo, @initial, @screen_size)).to eq({ 'hover|md|color--current:hover' => '@media only screen and (min-width: 1279) { background-color: currentColor; }' })
+      expect(described_class.utility_pseudo_breakpoint_classes_creation(@class_name, @content_str, @pseudo, @initial, @screen_size)).to eq({ 'hover|md|color--current:hover' => '@media only screen and (min-width: 1279) { color: currentColor }' })
+      expect(described_class.utility_pseudo_breakpoint_classes_creation(@class_name, @content_arr, @pseudo, @initial, @screen_size)).to eq({ 'hover|md|color--current:hover' => '@media only screen and (min-width: 1279) { background-color: currentColor }' })
     end
 
     it '.utility_classes' do

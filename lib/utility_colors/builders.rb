@@ -10,22 +10,23 @@ module UtilityColors
       { class_name => "#{content.join(': ')};" }
     end
 
+    # ';' are already in the content from the above source method
     # 'md|color--red-400'
     def self.utility_pseudo_classes_creation(class_name, content, pseudo)
       content = [content] unless content.is_a?(Array)
-      { "#{pseudo}\|#{class_name}:#{pseudo}" => "#{content.join(': ')};" }
+      { "#{pseudo}\|#{class_name}:#{pseudo}" => "#{content.join(': ')}" }
     end
 
     # 'hover|color--red-400'
     def self.utility_breakpoint_classes_creation(class_name, content, initial, screen_size)
       content = [content] unless content.is_a?(Array)
-      { "#{initial}\|#{class_name}" => "@media only screen and (min-width: #{screen_size - 1}) { #{content.join(': ')}; }" }
+      { "#{initial}\|#{class_name}" => "@media only screen and (min-width: #{screen_size - 1}) { #{content.join(': ')} }" }
     end
 
     # 'hover|md|color--red-400'
     def self.utility_pseudo_breakpoint_classes_creation(class_name, content, pseudo, initial, screen_size)
       content = [content] unless content.is_a?(Array)
-      { "#{pseudo}\|#{initial}\|#{class_name}:#{pseudo}" => "@media only screen and (min-width: #{screen_size - 1}) { #{content.join(': ')}; }" }
+      { "#{pseudo}\|#{initial}\|#{class_name}:#{pseudo}" => "@media only screen and (min-width: #{screen_size - 1}) { #{content.join(': ')} }" }
     end
 
     # Bulk Methods

@@ -1,8 +1,8 @@
 # UtilityColors
 
-![Gem Version](https://badge.fury.io/rb/utility_colors.svg)
+![Static Badge](https://img.shields.io/badge/Gem_Version-0.1.8-blue)
 [![Static Badge](https://img.shields.io/badge/RubyGems-red)](https://rubygems.org/gems/utility_colors)
-[![Static Badge](https://img.shields.io/badge/NPMjs-red)](https://www.npmjs.com/package/utility_colors)
+[![Static Badge](https://img.shields.io/badge/NPMjs-grey)](https://www.npmjs.com/package/utility_colors)
 
 Utility Colors is a library built and centred around creating quick and effective colour palettes based off of any base colour and then utilizing them in a wide variety of BEM style modifier classes to be used in styling that can come into effect at varying screen sizes and element states.
 

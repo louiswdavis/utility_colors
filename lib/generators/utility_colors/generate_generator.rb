@@ -5,6 +5,7 @@ module UtilityColors
     class GenerateGenerator < Rails::Generators::Base
       def generate_utility_colors
         # TODO: check if the v0.1.8 scss files exists
+        # "app/app/assets/stylesheets/utility_colors_files" directory
         self.class.config_format_warn if File.exist?('config/utility_colors.yml') || File.exist?('config/utility_colors.json')
 
         if UtilityColors.configuration.enable_environments.include?(Rails.env.to_sym)

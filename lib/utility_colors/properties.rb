@@ -2,11 +2,11 @@
 
 module UtilityColors
   class Properties
-    def self.get_property(*diggers)
-      diggers = [diggers] unless diggers.is_a?(Array)
+    def self.get_property(*keys)
+      keys = [keys] unless keys.is_a?(Array)
 
-      property = UtilityColors::Properties.send(diggers[0])
-      property = property.dig(*diggers.slice(1..-1)) if diggers.length > 1
+      property = UtilityColors::Properties.send(keys[0])
+      property = property.dig(*keys.slice(1..-1)) if keys.length > 1
 
       property
     end
@@ -29,6 +29,7 @@ module UtilityColors
       ]
     end
 
+    # TODO: add it in
     def self.pseudo_input_extra
       [
         'in-range',

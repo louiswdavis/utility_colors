@@ -11,7 +11,7 @@ RSpec.describe UtilityColors::Configuration do
         :regular_classes, :breakpoint_classes, :pseudo_classes, :breakpoint_pseudo_classes
       ]
 
-      expected_defaults = [[:development], nil, 'utility_colors', false, ['scss'], nil, nil, true, false, false, false]
+      expected_defaults = [[:development], 'utility_palettes.scss', 'utility_colors', false, ['scss'], nil, nil, true, false, false, false]
 
       configuration_class = UtilityColors::Configuration.new
       configuration = described_class.new

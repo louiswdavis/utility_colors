@@ -26,8 +26,8 @@ RSpec.describe UtilityColors::Colors do
       allow(UtilityColors::Builders).to receive(:bulk_pseudo_breakpoint_class_creation).and_call_original
 
       allow(UtilityColors::Builders).to receive(:utility_classes_creation).and_call_original
-      allow(UtilityColors::Builders).to receive(:utility_pseudo_classes_creation).and_call_original
       allow(UtilityColors::Builders).to receive(:utility_breakpoint_classes_creation).and_call_original
+      allow(UtilityColors::Builders).to receive(:utility_pseudo_classes_creation).and_call_original
       allow(UtilityColors::Builders).to receive(:utility_pseudo_breakpoint_classes_creation).and_call_original
 
       allow(UtilityColors::Colors).to receive(:format_classes).and_call_original
@@ -50,8 +50,8 @@ RSpec.describe UtilityColors::Colors do
       expect(UtilityColors::Builders).to have_received(:bulk_pseudo_breakpoint_class_creation).exactly(1).times
 
       expect(UtilityColors::Builders).to have_received(:utility_classes_creation).exactly(27).times
-      expect(UtilityColors::Builders).to have_received(:utility_pseudo_classes_creation).exactly(459).times
       expect(UtilityColors::Builders).to have_received(:utility_breakpoint_classes_creation).exactly(108).times
+      expect(UtilityColors::Builders).to have_received(:utility_pseudo_classes_creation).exactly(459).times
       expect(UtilityColors::Builders).to have_received(:utility_pseudo_breakpoint_classes_creation).exactly(1836).times
 
       expect(UtilityColors::Colors).to have_received(:format_classes).exactly(1).times
@@ -59,6 +59,80 @@ RSpec.describe UtilityColors::Colors do
       expect(UtilityColors::Exports).to have_received(:json).exactly(0).times
       expect(UtilityColors::Exports).to have_received(:scss).exactly(1).times
       expect(UtilityColors::Exports).to have_received(:css).exactly(0).times
+    end
+
+    it '.generate each set of class' do
+      configuration = UtilityColors.configuration
+      configuration.import_palettes_filepath = 'spec/fixtures/imports/palette.json'
+      configuration.output_filename = 'spec/tmp/exports/palette'
+
+      allow(UtilityColors::Builders).to receive(:bulk_breakpoint_class_creation).and_call_original
+      allow(UtilityColors::Builders).to receive(:bulk_pseudo_class_creation).and_call_original
+      allow(UtilityColors::Builders).to receive(:bulk_pseudo_breakpoint_class_creation).and_call_original
+
+      allow(UtilityColors::Builders).to receive(:utility_classes_creation).and_call_original
+      allow(UtilityColors::Builders).to receive(:utility_breakpoint_classes_creation).and_call_original
+      allow(UtilityColors::Builders).to receive(:utility_pseudo_classes_creation).and_call_original
+      allow(UtilityColors::Builders).to receive(:utility_pseudo_breakpoint_classes_creation).and_call_original
+
+      expect(described_class.generate).to eq true
+
+      expect(UtilityColors::Builders).to have_received(:bulk_breakpoint_class_creation).exactly(0).times
+      expect(UtilityColors::Builders).to have_received(:bulk_pseudo_class_creation).exactly(0).times
+      expect(UtilityColors::Builders).to have_received(:bulk_pseudo_breakpoint_class_creation).exactly(0).times
+
+      expect(UtilityColors::Builders).to have_received(:utility_classes_creation).exactly(27).times
+      expect(UtilityColors::Builders).to have_received(:utility_breakpoint_classes_creation).exactly(0).times
+      expect(UtilityColors::Builders).to have_received(:utility_pseudo_classes_creation).exactly(0).times
+      expect(UtilityColors::Builders).to have_received(:utility_pseudo_breakpoint_classes_creation).exactly(0).times
+
+      configuration.regular_classes = false
+      configuration.breakpoint_classes = true
+      configuration.pseudo_classes = false
+      configuration.pseudo_breakpoint_classes = false
+
+      expect(described_class.generate).to eq true
+
+      expect(UtilityColors::Builders).to have_received(:bulk_breakpoint_class_creation).exactly(1).times
+      expect(UtilityColors::Builders).to have_received(:bulk_pseudo_class_creation).exactly(0).times
+      expect(UtilityColors::Builders).to have_received(:bulk_pseudo_breakpoint_class_creation).exactly(0).times
+
+      expect(UtilityColors::Builders).to have_received(:utility_classes_creation).exactly(27 * 2).times
+      expect(UtilityColors::Builders).to have_received(:utility_breakpoint_classes_creation).exactly(108).times
+      expect(UtilityColors::Builders).to have_received(:utility_pseudo_classes_creation).exactly(0).times
+      expect(UtilityColors::Builders).to have_received(:utility_pseudo_breakpoint_classes_creation).exactly(0).times
+
+      configuration.regular_classes = false
+      configuration.breakpoint_classes = false
+      configuration.pseudo_classes = true
+      configuration.pseudo_breakpoint_classes = false
+
+      expect(described_class.generate).to eq true
+
+      expect(UtilityColors::Builders).to have_received(:bulk_breakpoint_class_creation).exactly(1).times
+      expect(UtilityColors::Builders).to have_received(:bulk_pseudo_class_creation).exactly(1).times
+      expect(UtilityColors::Builders).to have_received(:bulk_pseudo_breakpoint_class_creation).exactly(0).times
+
+      expect(UtilityColors::Builders).to have_received(:utility_classes_creation).exactly(27 * 3).times
+      expect(UtilityColors::Builders).to have_received(:utility_breakpoint_classes_creation).exactly(108).times
+      expect(UtilityColors::Builders).to have_received(:utility_pseudo_classes_creation).exactly(459).times
+      expect(UtilityColors::Builders).to have_received(:utility_pseudo_breakpoint_classes_creation).exactly(0).times
+
+      configuration.regular_classes = false
+      configuration.breakpoint_classes = false
+      configuration.pseudo_classes = false
+      configuration.pseudo_breakpoint_classes = true
+
+      expect(described_class.generate).to eq true
+
+      expect(UtilityColors::Builders).to have_received(:bulk_breakpoint_class_creation).exactly(1).times
+      expect(UtilityColors::Builders).to have_received(:bulk_pseudo_class_creation).exactly(1).times
+      expect(UtilityColors::Builders).to have_received(:bulk_pseudo_breakpoint_class_creation).exactly(1).times
+
+      expect(UtilityColors::Builders).to have_received(:utility_classes_creation).exactly(27 * 4).times
+      expect(UtilityColors::Builders).to have_received(:utility_breakpoint_classes_creation).exactly(108).times
+      expect(UtilityColors::Builders).to have_received(:utility_pseudo_classes_creation).exactly(459).times
+      expect(UtilityColors::Builders).to have_received(:utility_pseudo_breakpoint_classes_creation).exactly(1836).times
     end
   end
 

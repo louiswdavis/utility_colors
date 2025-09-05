@@ -1,6 +1,6 @@
 # UtilityColors
 
-![Static Badge](https://img.shields.io/badge/Gem_Version-1.0.0-blue)
+![Static Badge](https://img.shields.io/badge/Gem_Version-1.0.4-blue)
 [![Static Badge](https://img.shields.io/badge/RubyGems-red)](https://rubygems.org/gems/utility_colors)
 
 > Generate your own colour specific classes in an instance.

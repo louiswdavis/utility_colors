@@ -40,6 +40,7 @@ Gem::Specification.new do |spec|
   # Uncomment to register a new dependency of your gem
   # spec.add_dependency "example-gem", "~> 1.0"
   # spec.add_dependency 'utility_palettes', '~> 1.0.0' # get it working without building the palette too to start
+  spec.add_dependency 'railties', '>= 4.0'
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html

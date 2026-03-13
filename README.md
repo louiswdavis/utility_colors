@@ -8,6 +8,7 @@
 Utility Colors is an ruby gem package for use in ruby or other projects that generates styling classes based on your supplied colours.
 It can take your SCSS or CSS variable, or even a JSON file of them, and provide you with all the classes you need for adding colour to your HTML.
 After importing the UtilityColors stylesheet your styles will produce a large array of BEM classes that you can use to quickly modify the colour properties of your components. If you have a generic card class being used but in one place you want it to be red and another you want it to be light blue you can add the classes `.color--red` and `.color--blue-200` respectively to your html.
+All output to file(s) of your configured format, listing each css class per colour option with it's respective class name and value for the different types of colour properties that can be set.
 
 ## Installation
 

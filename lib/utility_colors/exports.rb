@@ -12,7 +12,7 @@ module UtilityColors
       FileUtils.mkdir_p(File.dirname(filepath))
       File.write(filepath, content)
 
-      puts 'Exporting utility colour classes JSON...'
+      puts "Exporting utility colour classes JSON to #{filepath}..."
       true
     end
 
@@ -25,7 +25,7 @@ module UtilityColors
       FileUtils.mkdir_p(File.dirname(filepath))
       File.write(filepath, content)
 
-      puts 'Exporting utility colour classes SCSS...'
+      puts "Exporting utility colour classes SCSS to #{filepath}..."
       true
     end
 
@@ -39,7 +39,7 @@ module UtilityColors
       FileUtils.mkdir_p(File.dirname(filepath))
       File.write(filepath, content)
 
-      puts 'Exporting utility colour classes CSS...'
+      puts "Exporting utility colour classes CSS to #{filepath}..."
       true
     end
 
